@@ -122,18 +122,33 @@ var toCamelCase = function(str){
     );
 };
 
+function trim(text) {
+  return text && (text.trim? text.trim() : text.replace(/^\s+|\s+$/g, ''));
+}
+
+function encode(text){
+    return "http://tweeplus.com/#" + encodeURIComponent(trim(text))
+      .replace(/'/g, '%27')
+      .replace(/\(/g, '%28')
+      .replace(/\)/g, '%29')
+      .replace(/\*/g, '%2A')
+      .replace(/\./g, '%2E')
+      .replace(/~/g, '%7E')
+      .replace(/%20/g, '+');
+}
+
 
 function getData (twitt, cb) { 
   doRequest(twitt.txt, function (error, dt){
     ntwitt = '@' + twitt.to + ' ';
     if (!error) {
-      // TODO: DRY (?)
+      function fix (ar) {
+        var a  = ar.split(' ');
+        return a[0] + ' ' + a[1].charAt(0) + '.';
+      }
       dt.name = dt.name.split(', ');
-      var fname = dt.name[1].split(' ');
-      var lname = dt.name[0].split(' ');
-      dt.name[1] = fname[0] + ' '+ fname[1].charAt(0) + '.';
-      dt.name[0] = lname[0] + ' '+ lname[1].charAt(0) + '.';
-      dt.name = dt.name[1] + ' ' + dt.name[0];
+      dt.name = fix(dt.name[1]) + ' ' +fix(dt.name[1]);
+
       dt.ciudad = dt.ciudad.split(', ');
       dt.ciudad = dt.ciudad[0] + ', ' + deptos[dt.ciudad[1]];
 
@@ -147,12 +162,22 @@ function getData (twitt, cb) {
       if (tlength > 120 && tlength < 140) {
         cb(ntwitt);
       } else if (tlength > 140) {
+        var toShorten = ntwitt + ' ' + dt.map
+        bitly.shorten(encode(toShorten), function (err, url){
+          if (err instanceof Error ) return cb(err);
+          if (err) return cb(new Error(err));
+          var newTwit = ntwitt.substr(0,116) + '... ' + url.data.url;
+          cb(newTwit);
+        });
+
         cb(new Error('Too Long to care'));
-      } else {
+      } else if (dt.map) {
         bitly.shorten(dt.map, function (error, resp){
           if (error) return cb(ntwitt);
           cb(ntwitt + ' ' + resp.data.url);
         });
+      } else {
+        cb(ntwitt);
       }
     } else {
       if (error instanceof Error) return cb(error);
