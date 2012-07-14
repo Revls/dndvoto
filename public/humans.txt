@@ -1,0 +1,13 @@
+/* numbus was made by a group of honduran students in Tegucigalpa, MDC, HN  */
+/* numbus.co */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: jQuery, Orbit, Reveal
+  Software: Sublime Text 2, Node.js, Git
+
+/* PEOPLE */
+  CTO: Alejandro Morales
+  CFO: Samuel
+  CMO: Elmer Canales

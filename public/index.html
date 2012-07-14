@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>¿Donde Voto? - Twitter Bot</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+	
+	<script src="javascripts/modernizr.foundation.js"></script>
+
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="twelve columns">
+				<h2><a href="//twitter.com/dndvoto">¿Donde Voto?</a>  <small>|  Twitter Bot</small></h2>
+				
+				<hr />
+			</div>
+		</div>
+
+		<div class="row ">
+			<div class="eight columns">
+
+				<div class="row panel">
+					<div class="twelve columns">
+										<h3>¿Porque?</h3>
+						<div class="">
+							<p>Una de las partes más importantes en el funcionamiento de una nación es la acción e interés de sus ciudadanos por hacer e iniciar el cambio. Si sus ciudadanos son agentes de cambio, el país puede tener mejores horizontes. </p>
+							<p>
+								Creemos que, el ausentismo en el proceso democrático no es una solución. Debemos saber elegir a nuestras autoridades. Es mediante el voto que tenemos el poder para elegir nuestros gobernantes. Intentemos al menos esta vez: tener confianza en nuestros politicos.
+							</p><p></p>
+						</div>
+					</div>
+					<hr>
+					<div class="twelve columns">
+						<h3>¿Como?</h3>
+						<p> El <a href="//tse.hn">TSE</a>, mediante el panel de <a href="http://consulta.tse.hn/consulta/">consultas</a>, expone el mecanismo para poder consultar la información y bajo el concepto de "Acceso a la información pública" se ha creado un mecanismo para acceder a la interfaz pública y hacer peticiones al servidor de manera legítima y segura.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="four columns">			
+				<h4>Como Usarlo</h4>
+				<p><code>@dndvoto #identidad</code></p>
+				<p> Manda un twitt con el número de identidad y te respondere con el nombre asociado a la identidad, tu centro de votación, ciudad, departamento y si ajustan los cáracteres te adjunto el mapa tambien. </p>
+
+				<h4>Otros Recursos</h4>
+				
+				<ul class="disc">
+					<li><p>¿No confias en la información? Verificalo tú mismo:<br><a href="http://consulta.tse.hn:7778/portal/page/portal/censoprovisional2012"> Censo Provisional 2012</a></p></li>
+					<li>
+						<p><a href="http://www.gestiopolis.com/economia-2/5-recomendaciones-elegir-buen-candidato-politico.htm"> 5 Recomendaciones para elegir un buen candidato </a></p>
+					</li>
+				</ul>
+			</div>
+			<div class="eight columns">
+				<h3 id="preguntas"><a href="#preguntas"> Preguntas o dudas frecuentes</a> </h3>
+				<ol class="disc">
+					<li>
+						<h5> ¿No me responde? </h5>
+						<p> Twitter estable limites de uso por hora. Probablemente cuando solicitaste información, ya habia alcanzado los limites de uso. <strong>Solución</strong>: Intentalo en una hora.</p>
+					</li>
+					<li>
+						<h5> La información es incorrecta </h5>
+						<p> La información utilizada es la misma que la <a href="http://consulta.tse.hn:7778/portal/page/portal/censoprovisional2012">oficial</a> (revisa tú mismo). <strong>Solución:</strong> Visita un centro de asistencia, por más información.</p> <p> Pero es que es distinta a la <strong>oficial</strong>: Manda un twitt con el siguiente formato: <code>@dndvoto checkcreds</code> y nosotros revisaremos que esta sucediendo.</p>
+					</li>
+					<li>
+						<h5> ¿Guardas mi información? </h5>
+						<p> No. Mi código es <a href="//github.com/hnconstruye/dndvoto">open source</a>, lo puedes revisar ;).</p>
+					</li>
+					<li>
+						<h5> ¿Es seguro? </h5>
+						<p> Si y no. Como has de saber la información en twitter es de caracter público. Los twitts generados son enviados directamente al usuario que hizo la petición. Si quieres que luego de ser vista la información se borro un twitt mandanos uno con el siguiente formato: <code>@dndvoto borrar LINK</code> donde el LINK es el twitt que quieres sea eliminado. Prometemos darte respuesta en menos de 24 horas. </p>
+					</li>
+					<li>
+						<h5> ¿Quien te construyo? </h5>
+						<p> <a href="//github.com/hnconstruye">Honduras Construye</a>, una organización anónima y sin ánimos de lucro, que cree en el poder de las redes sociales y el internet.</p>
+					</li>
+					<li>
+						<h5>Contacto</h5>
+						<p> Via <a href="//twitter.com/dndvoto">Twitter</a></p>
+
+					</li>
+				</ol>
+			</div>
+			<div class="four columns">
+			</div>
+		</div>
+
+	</div>
+	<!-- container -->
+
+
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/foundation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "dondevoto",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/alejandromg/dondevoto.git"
+  },
+  "keywords": [
+    "vows",
+    "votar",
+    "twitterbot"
+  ],
+  "author": "Alejandro Morales",
+  "license": "BSD",
+  "dependencies": {
+    "request": "~2.9.203",
+    "cheerio": "~0.8.3",
+    "ntwitter": "~0.4.0",
+    "bitly": "~1.2.4",
+    "nhouston": "~1.0.1"
+  }
+}
