@@ -147,7 +147,7 @@ function getData (twitt, cb) {
       if (tlength > 120 && tlength < 140) {
         cb(ntwitt);
       } else if (tlength > 140) {
-        // TODO 
+        cb(new Error('Too Long to care'));
       } else {
         bitly.shorten(dt.map, function (error, resp){
           if (error) return cb(ntwitt);
