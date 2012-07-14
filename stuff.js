@@ -20,7 +20,7 @@ var cookies = {
   "__utmb": "59979711.1.10.1342244347",
   "__utmc": 59979711,
   "__utmz": "59979711.1342228969.1.1.utmcsr=t.co|utmccn=(referral)|utmcmd=referral|utmcct=/hw5XssBM"
-}
+};
 
 Object.keys(cookies).forEach(function(cookie){
   j.push(cookie + '=' + cookies[cookie]);
@@ -63,13 +63,13 @@ function doRequest (id, cb) {
       "FORM_EN_CENSO_PROV.DEFAULT.P_IDENTIDAD.01": id 
     },
     method: 'POST'
-  }
+  };
 
   request(options, function (error, resp){
 
     if (!error && resp.statusCode == 200)  {
       var $ = cheerio.load(resp.body);
-      var trs = []
+      var trs = [];
       $('table').children().each(function(i, elem){
         trs[i] = $(this).text();
       });
@@ -83,14 +83,14 @@ function doRequest (id, cb) {
         map: $('iframe').attr('src') || ''
       };
 
-      cb(null, info)
+      cb(null, info);
     } else {
       cb(new Error('Empty response'));
     }
 
   });
 
-};
+}
 
 // Sin acentos 
 var deptos = {
@@ -137,17 +137,18 @@ function encode(text){
       .replace(/%20/g, '+');
 }
 
+function fix (ar) {
+  var a  = ar.split(' ');
+  return a[0] + ' ' + a[1].charAt(0) + '.';
+}
 
 function getData (twitt, cb) { 
   doRequest(twitt.txt, function (error, dt){
-    ntwitt = '@' + twitt.to + ' ';
+    var ntwitt = '@' + twitt.to + ' ';
     if (!error) {
-      function fix (ar) {
-        var a  = ar.split(' ');
-        return a[0] + ' ' + a[1].charAt(0) + '.';
-      }
+
       dt.name = dt.name.split(', ');
-      dt.name = fix(dt.name[1]) + ' ' +fix(dt.name[1]);
+      dt.name = fix(dt.name[1]) + ' ' +fix(dt.name[0]);
 
       dt.ciudad = dt.ciudad.split(', ');
       dt.ciudad = dt.ciudad[0] + ', ' + deptos[dt.ciudad[1]];
@@ -162,7 +163,7 @@ function getData (twitt, cb) {
       if (tlength > 120 && tlength < 140) {
         cb(ntwitt);
       } else if (tlength > 140) {
-        var toShorten = ntwitt + ' ' + dt.map
+        var toShorten = ntwitt + ' ' + dt.map;
         bitly.shorten(encode(toShorten), function (err, url){
           if (err instanceof Error ) return cb(err);
           if (err) return cb(new Error(err));
@@ -181,10 +182,10 @@ function getData (twitt, cb) {
       }
     } else {
       if (error instanceof Error) return cb(error);
-      cb(ntwitt + ' lo siento no puedo procesar tu petición.')
+      cb(ntwitt + ' lo siento no puedo procesar tu petición.');
     }
   });
 }
 
-module.exports = getData
+module.exports = getData;
 
