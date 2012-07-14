@@ -1,6 +1,6 @@
 {
   "name": "dondevoto",
-  "version": "0.0.0-2",
+  "version": "0.0.0-4",
   "main": "index.js",
   "scripts": {
     "test": "npm test",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/alejandromg/dondevoto.git"
+    "url": "http://github.com/hnconstruye/dndvoto.git"
   },
   "keywords": [
     "vows",
