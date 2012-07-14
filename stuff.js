@@ -170,8 +170,6 @@ function getData (twitt, cb) {
           var newTwit = ntwitt.substr(0,116) + '... ' + url.data.url;
           cb(newTwit);
         });
-
-        cb(new Error('Too Long to care'));
       } else if (dt.map) {
         bitly.shorten(dt.map, function (error, resp){
           if (error) return cb(ntwitt);
