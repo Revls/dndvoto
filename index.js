@@ -60,6 +60,7 @@ function startStream(){
 // INIT ALL THE THINGS
 
 // Server
-require('nhouston')(__dirname + '/public');
+require('http').createServer(require('ecstatic')(__dirname + '/public')).listen(8080);
+
 // twitter stream
 startStream();
